@@ -19,7 +19,7 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    <div style={{ border: "1px solid #ccc", margin: 8, padding: 8 }}>
+    <div className="cart-item">
       <h4>{item.title}</h4>
       <p>Price: ${item.price}</p>
       <p>

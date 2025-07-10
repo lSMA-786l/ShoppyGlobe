@@ -7,12 +7,12 @@ const Header = () => {
   const cartCount = useSelector(state => state.cart.items.reduce((sum, item) => sum + item.quantity, 0));
 
   return (
-    <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16, background: "#eee" }}>
-      <nav>
-        <Link to="/" style={{ marginRight: 16 }}>Home</Link>
-        <Link to="/cart">Cart ({cartCount})</Link>
-      </nav>
+    <header className="app-header">
       <h1>ShoppyGlobe</h1>
+      <nav className="nav-buttons">
+        <Link to="/" className="nav-button">Home</Link>
+        <Link to="/cart" className="nav-button">Cart ({cartCount})</Link>
+      </nav>
     </header>
   );
 };

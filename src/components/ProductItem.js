@@ -11,11 +11,14 @@ const ProductItem = ({ product }) => {
   };
 
   return (
-    <div style={{ border: "1px solid #ccc", margin: 8, padding: 8 }}>
-      <h3>{product.title}</h3>
-      <p>{product.description}</p>
-      <p>Price: ${product.price}</p>
-      <button onClick={handleAddToCart}>Add to Cart</button>
+    <div className="product-item">
+      <img src="https://via.placeholder.com/150" alt={product.title} className="product-image" />
+      <div className="product-info">
+        <h3>{product.title}</h3>
+        <p>{product.description}</p>
+        <p className="price">${product.price}</p>
+        <button onClick={handleAddToCart} className="add-to-cart-btn">Add to Cart</button>
+      </div>
     </div>
   );
 };

@@ -27,9 +27,11 @@ const ProductList = () => {
       {filteredProducts.length === 0 ? (
         <div>No products found.</div>
       ) : (
-        filteredProducts.map(product => (
-          <ProductItem key={product.id} product={product} />
-        ))
+        <div className="product-list">
+          {filteredProducts.map(product => (
+            <ProductItem key={product.id} product={product} />
+          ))}
+        </div>
       )}
     </div>
   );
