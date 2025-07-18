@@ -19,7 +19,7 @@ const Cart = () => {
       </div>
       <div className="cart-total">
         <h3>Total: ${totalPrice.toFixed(2)}</h3>
-        <div class="cart-actions">
+        <div className="cart-actions">  
           <button onClick={() => dispatch(clearCart())}>Clear Cart</button>
           <button>Checkout</button>
         </div>

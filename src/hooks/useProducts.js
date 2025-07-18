@@ -1,5 +1,4 @@
-// Custom hook to fetch product list
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const useProducts = () => {
   const [products, setProducts] = useState([]);
@@ -9,8 +8,8 @@ const useProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("https://dummyjson.com/products");
-        if (!response.ok) throw new Error("Failed to fetch products");
+        const response = await fetch('https://dummyjson.com/products');
+        if (!response.ok) throw new Error('Failed to fetch products');
         const data = await response.json();
         setProducts(data.products);
       } catch (err) {
@@ -19,6 +18,7 @@ const useProducts = () => {
         setLoading(false);
       }
     };
+
     fetchProducts();
   }, []);
 

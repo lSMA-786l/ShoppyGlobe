@@ -1,4 +1,3 @@
-// ProductList component to display a list of products
 import React, { useState } from "react";
 import useProducts from "../hooks/useProducts";
 import ProductItem from "./ProductItem";
@@ -12,28 +11,31 @@ const ProductList = () => {
     product.description.toLowerCase().includes(search.toLowerCase())
   );
 
-  if (loading) return <div>Loading products...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <div className="loading">Loading products...</div>;
+  if (error) return <div className="error">Error: {error}</div>;
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search products..."
-        value={search}
-        onChange={e => setSearch(e.target.value)}
-        style={{ marginBottom: 16, padding: 8, width: 300 }}
-      />
+    <main className="product-list-container">
+      <section className="search-section">
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          className="search-input"
+        />
+      </section>
+      
       {filteredProducts.length === 0 ? (
-        <div>No products found.</div>
+        <p className="no-products">No products found matching your search.</p>
       ) : (
-        <div className="product-list">
+        <section className="product-list">
           {filteredProducts.map(product => (
             <ProductItem key={product.id} product={product} />
           ))}
-        </div>
+        </section>
       )}
-    </div>
+    </main>
   );
 };
 
