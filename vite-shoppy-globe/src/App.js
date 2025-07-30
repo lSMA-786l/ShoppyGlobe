@@ -1,7 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import logo from './logo.svg';
 import './App.css';
 
 const ProductList = lazy(() => import("./components/ProductList"));
