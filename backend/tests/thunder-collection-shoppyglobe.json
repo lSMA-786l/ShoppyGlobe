@@ -1,0 +1,75 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "ShoppyGlobe API",
+  "variables": [
+    { "name": "baseUrl", "value": "http://localhost:5000/api" },
+    { "name": "token", "value": "" }
+  ],
+  "requests": [
+    {
+      "name": "Register",
+      "method": "POST",
+      "url": "{{baseUrl}}/auth/register",
+      "body": {
+        "type": "json",
+        "raw": { "name": "TestUser", "email": "testuser@example.com", "password": "Password123" }
+      }
+    },
+    {
+      "name": "Login",
+      "method": "POST",
+      "url": "{{baseUrl}}/auth/login",
+      "body": {
+        "type": "json",
+        "raw": { "email": "testuser@example.com", "password": "Password123" }
+      }
+    },
+    {
+      "name": "Get Products",
+      "method": "GET",
+      "url": "{{baseUrl}}/products"
+    },
+    {
+      "name": "Create Product",
+      "method": "POST",
+      "url": "{{baseUrl}}/products",
+      "headers": [ { "name": "Authorization", "value": "Bearer {{token}}" } ],
+      "body": {
+        "type": "json",
+        "raw": { "name": "Sample Product", "price": 10, "description": "desc", "stockQuantity": 5 }
+      }
+    },
+    {
+      "name": "Add to Cart",
+      "method": "POST",
+      "url": "{{baseUrl}}/cart",
+      "headers": [ { "name": "Authorization", "value": "Bearer {{token}}" } ],
+      "body": {
+        "type": "json",
+        "raw": { "productId": "", "quantity": 2 }
+      }
+    },
+    {
+      "name": "Get Cart",
+      "method": "GET",
+      "url": "{{baseUrl}}/cart",
+      "headers": [ { "name": "Authorization", "value": "Bearer {{token}}" } ]
+    },
+    {
+      "name": "Update Cart Item",
+      "method": "PUT",
+      "url": "{{baseUrl}}/cart/{{productId}}",
+      "headers": [ { "name": "Authorization", "value": "Bearer {{token}}" } ],
+      "body": {
+        "type": "json",
+        "raw": { "quantity": 3 }
+      }
+    },
+    {
+      "name": "Remove Cart Item",
+      "method": "DELETE",
+      "url": "{{baseUrl}}/cart/{{productId}}",
+      "headers": [ { "name": "Authorization", "value": "Bearer {{token}}" } ]
+    }
+  ]
+}
